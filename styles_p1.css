@@ -240,6 +240,52 @@ header h2 {
 .video-thumbnail:hover .play-button {
     opacity: 1;
 }
+/* Testimonials Section */
+#testimonials {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+#testimonials h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.testimonial-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.testimonial {
+    background-color: #f4f1ea;
+    padding: 20px;
+    border-radius: 10px;
+    width: calc(33.33% - 20px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial p {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.testimonial cite {
+    font-size: 0.9em;
+    color: #666;
+}
 
 /* About Section */
 #about {
