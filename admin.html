@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Upload</title>
+    <link rel="stylesheet" href="styles_v6.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .upload-container {
+            width: 80%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function checkPassword() {
+            const password = prompt("Enter Admin Password:");
+            const correctPassword = "admin123";
+            if (password !== correctPassword || password === null) {
+                alert("Incorrect password! Access denied.");
+                window.location.href = "index.html";
+            }
+        }
+        checkPassword();
+    </script>
+    
+    <div class="upload-container">
+        <h2>Upload Images</h2>
+        <label for="image-category">Select Category:</label>
+        <select id="image-category" onchange="updateSlotOptions()">
+            <option value="services">Services</option>
+            <option value="projects">Projects</option>
+        </select>
+        <label for="image-slot">Select Image Slot:</label>
+        <select id="image-slot"></select>
+        <input type="file" id="file-input" accept="image/*">
+        <button onclick="uploadImage()">Upload</button>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            updateSlotOptions();
+        });
+
+        function updateSlotOptions() {
+            const category = document.getElementById('image-category').value;
+            const slotSelect = document.getElementById('image-slot');
+            slotSelect.innerHTML = '';
+            
+            const slots = category === 'services' ? 3 : 9;
+            for (let i = 0; i < slots; i++) {
+                slotSelect.innerHTML += `<option value="${i}">Image ${i + 1}</option>`;
+            }
+        }
+
+        function uploadImage() {
+            const file = document.getElementById('file-input').files[0];
+            const category = document.getElementById('image-category').value;
+            const slot = parseInt(document.getElementById('image-slot').value);
+            
+            if (!file) {
+                alert("No file selected.");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imageData = e.target.result;
+                const key = `update_${category}_${slot}`;
+                localStorage.setItem(key, imageData);
+                alert("Image updated! Refresh the page to see changes.");
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>
