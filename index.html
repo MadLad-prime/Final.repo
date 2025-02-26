@@ -57,27 +57,32 @@
             container.innerHTML = '<iframe width="100%" height="315" src="https://www.youtube.com/embed/AU4mQDrCpIs?autoplay=1" frameborder="0" allowfullscreen></iframe>';
         }
 
-        function loadImages() {
-            document.querySelectorAll('.cache-bust').forEach(img => {
-                const timestamp = new Date().getTime();
-                const src = img.getAttribute('src').split('?')[0]; // Remove old cache-busting params
-                img.setAttribute('src', `${src}?v=${timestamp}`);
-            });
+         function loadImages() {
+        document.querySelectorAll('.cache-bust').forEach(img => {
+            const timestamp = new Date().getTime();
+            const src = img.getAttribute('src').split('?')[0]; // Remove old cache-busting params
+            img.setAttribute('src', `${src}?v=${timestamp}`);
+        });
 
-            ['services', 'projects', 'about'].forEach(category => {
-                for (let i = 0; i < 3; i++) {
-                    const key = `update_${category}_${i}`;
-                    const imageData = localStorage.getItem(key);
-                    if (imageData) {
-                        const imgElement = document.getElementById(`${category}-${i}`);
-                        if (imgElement) imgElement.src = imageData;
+        ['services', 'projects', 'about'].forEach(category => {
+            for (let i = 0; i < 3; i++) {
+                const key = `update_${category}_${i}`;
+                const imageData = localStorage.getItem(key);
+                if (imageData) {
+                    const imgElement = document.getElementById(`${category}-${i}`);
+                    if (imgElement) {
+                        imgElement.src = imageData;
+                        console.log(`Updated ${category}-${i} with new image`);
+                    } else {
+                        console.error(`Element ${category}-${i} not found`);
                     }
                 }
-            });
-        }
-        
-        window.onload = loadImages;
-    </script>
+            }
+        });
+    }
+
+    window.addEventListener('DOMContentLoaded', loadImages);
+</script>
 
     <!-- Admin Button -->
     <div style="text-align: center; margin: 40px 0;">
