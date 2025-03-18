@@ -37,6 +37,20 @@
                 max-width: 100%;
             }
         }
+        /* Lightbox styles */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
     </style>
 </head>
 <body>
@@ -258,5 +272,25 @@
     <!-- Removed Footer Section -->
 
     <script src="scripts_p1.js"></script>
+    <!-- Lightbox modal container -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Full view">
+    </div>
+    <!-- Lightbox functionality script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll("img").forEach(function(img) {
+                img.addEventListener("click", function(event) {
+                    // Skip images within the video section
+                    if (this.closest("#video")) return;
+                    document.getElementById("lightbox-img").src = this.src;
+                    document.getElementById("lightbox").style.display = "flex";
+                });
+            });
+        });
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+    </script>
 </body>
 </html>
