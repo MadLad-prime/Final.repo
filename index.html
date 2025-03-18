@@ -6,15 +6,224 @@
     <title>Good Isaac Home Concepts</title>
     <link rel="stylesheet" href="styles_v6.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        img, video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            background-image: url('images/isaac_img1.jpg'); /* Replace with your hero image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+        }
+
+        /* Added gradient overlay to transition to header */
+        .hero::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -20px;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, #13274F);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        header {
+            position: relative; /* added for pseudo-element positioning */
+            text-align: center;
+            padding: 20px;
+            background: #13274F; /* navy blue background */
+            color: white; /* white text */
+            border-bottom: 1px solid #222;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -20px;
+            height: 20px;
+            background: linear-gradient(to bottom, #13274F, white);
+        }
+
+        #profile-image {
+            width: 250px; /* increased size for better visibility */
+            height: 250px;
+            border-radius: 50%;
+            margin: 10px auto;
+        }
+
+        .header-content h2 {
+            font-size: 1.8rem;
+            margin: 10px 0;
+            color: white; /* ensure header text is white */
+        }
+
+        .header-content p {
+            font-size: 1rem;
+            color: white; /* ensure header text is white */
+        }
+
+        /* Menu Button Changes */
+        #menu-button {
+            color: white;
+            background: transparent;
+            border: none; /* removed rectangle border */
+            padding: 10px 15px; /* bigger button */
+            font-size: 1.5rem;  /* increased size for better visibility */
+            font-weight: bold;  /* thicker appearance */
+            cursor: pointer;
+        }
+
+        /* Services and Projects Sections */
+        .services-grid, .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .services-grid li, .project-grid div {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+            background-colour: #f9f9f9;
+        }
+
+        .services-grid img, .project-grid img, .project-grid video {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .services-grid p, .project-grid p {
+            margin: 10px 0 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        
+
+           /* Ensure videos and images don't overflow their containers */
+        video, img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Footer Section */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+
+        footer a:hover {
+            color: #f9f9f9;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .header-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .header-content p {
+                font-size: 0.9rem;
+            }
+
+            .services-grid, .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Good Isaac Home Concepts</h1>
+            <p>Transforming spaces with exquisite designs and craftsmanship.</p>
+        </div>
+    </section>
+
     <!-- Header Section -->
     <header>
-        <h1>Good Isaac Home Concepts</h1>
-        <img id="profile-image" class="cache-bust" src="images/isaac_img1.jpg" alt="profile">
+        <img id="profile-image" class="cache-bust" src="gihc.png" alt="profile">
         <div class="header-content">
             <h2>Good Isaac Home Concepts</h2>
-            <p>Welcome to Good Isaac Home Concepts, we specialize in all types of exterior and interior finishes, design and installation of contemporary kitchen cabinets, wardrobes, office furniture.
+            <p>Welcome to Good Isaac Home Concepts, we specialize in all types of exterior and interior finishes, design and installation of contemporary kitchen cabinets, wardrobes, office furniture.</p>
         </div>
         <button id="menu-button">☰ Menu</button>
         <div class="dropdown" id="dropdown-menu">
@@ -26,10 +235,19 @@
     <!-- Services Section -->
     <section id="services">
         <h2>Our Services</h2>
-        <ul>
-            <li><img id="services-0" class="cache-bust" src="images/isaac_img11.jpg" alt="Custom Bookshelf and Study Table."><p>Custom Bookshelf and Study Table.</p></li>
-            <li><img id="services-1" class="cache-bust" src="images/isaac_img6.jpg" alt="Renovation - Design and Installation of Wardrobes."><p>Renovation - Design and Installation of Wardrobes.</p></li>
-            <li><img id="services-2" class="cache-bust" src="images/isaac_img14.jpg" alt="Design of Contemporary Shoe Rack."><p>Design of Contemporary Shoe Rack.</p></li>
+        <ul class="services-grid">
+            <li>
+                <img id="services-0" class="cache-bust" src="images/isaac_img11.jpg" alt="Custom Bookshelf and Study Table.">
+                <p>Custom Bookshelf and Study Table.</p>
+            </li>
+            <li>
+                <img id="services-1" class="cache-bust" src="images/isaac_img6.jpg" alt="Renovation - Design and Installation of Wardrobes.">
+                <p>Renovation - Design and Installation of Wardrobes.</p>
+            </li>
+            <li>
+                <img id="services-2" class="cache-bust" src="images/isaac_img14.jpg" alt="Design of Contemporary Shoe Rack.">
+                <p>Design of Contemporary Shoe Rack.</p>
+            </li>
         </ul>
     </section>
 
@@ -37,9 +255,45 @@
     <section id="projects">
         <h2>Latest Projects</h2>
         <div class="project-grid">
-            <div><img id="projects-0" class="cache-bust" src="images/isaac_img16.jpg" alt="Iron Board Station"><p>Iron Board Station</p></div>
-            <div><img id="projects-1" class="cache-bust" src="images/isaac_img17.jpg" alt="Cabinet"><p>Cabinet</p></div>
-            <div><img id="projects-2" class="cache-bust" src="images/isaac_img18.jpg" alt="Cupboard"><p>Cupboard</p></div>
+            <!-- Image 1 -->
+            <div>
+                <img id="projects-0" class="cache-bust" src="images/isaac_img16.jpg" alt="Iron Board Station">
+                <p>Iron Board Station</p>
+            </div>
+            <!-- Image 2 -->
+            <div>
+                <img id="projects-1" class="cache-bust" src="images/isaac_img17.jpg" alt="Cabinet">
+                <p>Cabinet</p>
+            </div>
+            <!-- Image 3 -->
+            <div>
+                <img id="projects-2" class="cache-bust" src="images/isaac_img18.jpg" alt="Cupboard">
+                <p>Cupboard</p>
+            </div>
+            <!-- Video 1 -->
+            <div>
+                <video controls class="cache-bust">
+                    <source src="vides/v1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Bedroom Wardrobes and Kitchen islands - design,build and installation</p>
+            </div>
+            <!-- Video 2 -->
+            <div>
+                <video controls class="cache-bust">
+                    <source src="vides/v2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Full Kitchen setup with custom cabinets,countertops and finishes</p>
+            </div>
+            <!-- Video 3 -->
+            <div>
+                <video controls class="cache-bust">
+                    <source src="vides/v3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>High quality Couches for living room</p>
+            </div>
         </div>
     </section>
 
@@ -53,34 +307,11 @@
     </section>
 
     <script>
+        // JavaScript for Video Controls
         function playVideo(container) {
             container.innerHTML = '<iframe width="100%" height="315" src="https://www.youtube.com/embed/AU4mQDrCpIs?autoplay=1" frameborder="0" allowfullscreen></iframe>';
         }
-
-        function loadImages() {
-            ['services', 'projects'].forEach(category => {
-                const slots = category === 'services' ? 3 : 9;
-                for (let i = 0; i < slots; i++) {
-                    const key = `update_${category}_${i}`;
-                    const imageData = localStorage.getItem(key);
-                    if (imageData) {
-                        const imgElement = document.getElementById(`${category}-${i}`);
-                        if (imgElement) imgElement.src = imageData;
-                    }
-                }
-            });
-        }
-
-        window.onload = loadImages;
     </script>
-
-
-    <!-- Admin Button -->
-    <div style="text-align: center; margin: 40px 0;">
-        <a href="admin.html">
-            <button id="admin-button" style="padding: 12px 24px; font-size: 16px; background-color: #333; color: white; border: none; cursor: pointer; border-radius: 5px;">Admin</button>
-        </a>
-    </div>
 
     <!-- Footer Section -->
     <footer>
