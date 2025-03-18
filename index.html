@@ -6,6 +6,45 @@
     <title>Good Isaac Home Concepts</title>
     <link rel="stylesheet" href="styles_v6.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS for Video and Image Boxes */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .project-grid div {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .project-grid img,
+        .project-grid video {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .project-grid p {
+            margin: 10px 0 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Ensure videos and images don't overflow their containers */
+        video, img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -37,9 +76,45 @@
     <section id="projects">
         <h2>Latest Projects</h2>
         <div class="project-grid">
-            <div><img id="projects-0" class="cache-bust" src="images/isaac_img16.jpg" alt="Iron Board Station"><p>Iron Board Station</p></div>
-            <div><img id="projects-1" class="cache-bust" src="images/isaac_img17.jpg" alt="Cabinet"><p>Cabinet</p></div>
-            <div><img id="projects-2" class="cache-bust" src="images/isaac_img18.jpg" alt="Cupboard"><p>Cupboard</p></div>
+            <!-- Image 1 -->
+            <div>
+                <img id="projects-0" class="cache-bust" src="images/isaac_img16.jpg" alt="Iron Board Station">
+                <p>Iron Board Station</p>
+            </div>
+            <!-- Image 2 -->
+            <div>
+                <img id="projects-1" class="cache-bust" src="images/isaac_img17.jpg" alt="Cabinet">
+                <p>Cabinet</p>
+            </div>
+            <!-- Image 3 -->
+            <div>
+                <img id="projects-2" class="cache-bust" src="images/isaac_img18.jpg" alt="Cupboard">
+                <p>Cupboard</p>
+            </div>
+            <!-- Video 1 -->
+            <div>
+                <video controls class="cache-bust">
+                    <source src="vides/v3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Iron Board Station (Video)</p>
+            </div>
+            <!-- Video 2 -->
+            <div>
+                <video controls class="cache-bust">
+                    <source src="vides/v1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Cabinet (Video)</p>
+            </div>
+            <!-- Video 3 -->
+            <div>
+                <video controls class="cache-bust">
+                    <source src="vides/v2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Cupboard (Video)</p>
+            </div>
         </div>
     </section>
 
@@ -53,34 +128,19 @@
     </section>
 
     <script>
+        // JavaScript for Video Controls
         function playVideo(container) {
             container.innerHTML = '<iframe width="100%" height="315" src="https://www.youtube.com/embed/AU4mQDrCpIs?autoplay=1" frameborder="0" allowfullscreen></iframe>';
         }
 
-        function loadImages() {
-            ['services', 'projects'].forEach(category => {
-                const slots = category === 'services' ? 3 : 9;
-                for (let i = 0; i < slots; i++) {
-                    const key = `update_${category}_${i}`;
-                    const imageData = localStorage.getItem(key);
-                    if (imageData) {
-                        const imgElement = document.getElementById(`${category}-${i}`);
-                        if (imgElement) imgElement.src = imageData;
-                    }
-                }
+        // Ensure videos and images are responsive
+        window.addEventListener("resize", function () {
+            document.querySelectorAll(".project-grid video, .project-grid img").forEach(media => {
+                media.style.width = "100%";
+                media.style.height = "auto";
             });
-        }
-
-        window.onload = loadImages;
+        });
     </script>
-
-
-    <!-- Admin Button -->
-    <div style="text-align: center; margin: 40px 0;">
-        <a href="admin.html">
-            <button id="admin-button" style="padding: 12px 24px; font-size: 16px; background-color: #333; color: white; border: none; cursor: pointer; border-radius: 5px;">Admin</button>
-        </a>
-    </div>
 
     <!-- Footer Section -->
     <footer>
