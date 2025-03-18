@@ -161,31 +161,10 @@
 
         
 
-        /* Video Section */
-        #video {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .video-thumbnail {
-            position: relative;
-            max-width: 600px;
-            margin: 0 auto;
-            cursor: pointer;
-        }
-
-        .video-thumbnail img {
-            border-radius: 10px;
-        }
-
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3rem;
-            color: white;
-            opacity: 0.8;
+           /* Ensure videos and images don't overflow their containers */
+        video, img {
+            max-width: 100%;
+            height: auto;
         }
 
         /* Footer Section */
