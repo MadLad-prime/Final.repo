@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4302917045780844"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Good Isaac Home Concepts</title>
-    <link rel="stylesheet" href="styles_v6.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* General Styles */
@@ -15,7 +12,8 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            color: #333;
+            color: #333; /* Body text color */
+            font-size: 16px; /* Base font size */
         }
 
         h1, h2, h3 {
@@ -27,6 +25,16 @@
             max-width: 100%;
             height: auto;
             display: block;
+        }
+
+        a {
+            color: #333; /* Default link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        a:hover {
+            color: #13274F; /* Hover color for links */
+            text-decoration: underline; /* Underline on hover */
         }
 
         /* Hero Section */
@@ -53,7 +61,6 @@
             background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
         }
 
-        /* Added gradient overlay to transition to header */
         .hero::after {
             content: "";
             position: absolute;
@@ -81,13 +88,32 @@
             margin: 0 auto;
         }
 
+        /* Call Us Button */
+        .call-us-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #13274F;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1rem;
+            z-index: 2;
+            transition: background 0.3s ease;
+        }
+
+        .call-us-button:hover {
+            background: #1c3a6e;
+        }
+
         /* Header Section */
         header {
-            position: relative; /* added for pseudo-element positioning */
+            position: relative;
             text-align: center;
             padding: 20px;
-            background: #13274F; /* navy blue background */
-            color: white; /* white text */
+            background: #13274F;
+            color: white;
             border-bottom: 1px solid #222;
         }
 
@@ -102,7 +128,7 @@
         }
 
         #profile-image {
-            width: 250px; /* increased size for better visibility */
+            width: 250px;
             height: 250px;
             border-radius: 50%;
             margin: 10px auto;
@@ -111,23 +137,37 @@
         .header-content h2 {
             font-size: 1.8rem;
             margin: 10px 0;
-            color: white; /* ensure header text is white */
+            color: white;
         }
 
         .header-content p {
             font-size: 1rem;
-            color: white; /* ensure header text is white */
+            color: white;
         }
 
-        /* Menu Button Changes */
-        #menu-button {
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .nav-buttons a {
+            background: #13274F;
             color: white;
-            background: transparent;
-            border: none; /* removed rectangle border */
-            padding: 10px 15px; /* bigger button */
-            font-size: 1.5rem;  /* increased size for better visibility */
-            font-weight: bold;  /* thicker appearance */
-            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+            border: 2px solid #1c3a6e; /* Permanent border */
+        }
+
+        .nav-buttons a:hover {
+            background: #1c3a6e;
+            transform: translateY(-3px);
         }
 
         /* Services and Projects Sections */
@@ -135,7 +175,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            padding: 20px 0;
+            padding: 20px;
         }
 
         .services-grid li, .project-grid div {
@@ -144,7 +184,7 @@
             overflow: hidden;
             text-align: center;
             padding: 10px;
-            background-colour: #f9f9f9;
+            background-color: #f9f9f9;
         }
 
         .services-grid img, .project-grid img, .project-grid video {
@@ -161,10 +201,27 @@
             font-weight: bold;
         }
 
-           /* Ensure videos and images don't overflow their containers */
-        video, img {
-            max-width: 100%;
-            height: auto;
+        /* Video Section */
+        .video-thumbnail {
+            position: relative;
+            cursor: pointer;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            color: white;
+            opacity: 0.8;
         }
 
         /* Footer Section */
@@ -175,14 +232,39 @@
             color: white;
         }
 
-        footer a {
-            color: white;
-            margin: 0 10px;
-            font-size: 1.5rem;
+        footer p {
+            margin: 10px 0; /* Add spacing between paragraphs */
         }
 
-        footer a:hover {
-            color: #f9f9f9;
+        footer a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            text-decoration: none; /* Remove underline */
+        }
+
+        /* Social Media Brand Colors */
+        .fa-facebook {
+            color: #1877F2; /* Facebook brand color */
+        }
+
+        .fa-instagram {
+            color: #E4405F; /* Instagram brand color */
+        }
+
+        .fa-tiktok {
+            color: #000000; /* TikTok brand color */
+        }
+
+        footer a:hover .fa-facebook {
+            color: #165bbf; /* Darker Facebook color on hover */
+        }
+
+        footer a:hover .fa-instagram {
+            color: #c13584; /* Darker Instagram color on hover */
+        }
+
+        footer a:hover .fa-tiktok {
+            color: #333; /* Darker TikTok color on hover */
         }
 
         /* Mobile Responsiveness */
@@ -206,40 +288,23 @@
             .services-grid, .project-grid {
                 grid-template-columns: 1fr;
             }
+
+            .nav-buttons {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
         }
 
-        /* Added modal styles for full image view */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.9);
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-        }
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
+        /* Fix for Services Section Title */
+        #services {
+            padding-top: 40px; /* Move the title lower */
         }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <section class="hero">
+        <a href="tel:+254710593221" class="call-us-button">Call Us</a>
         <div class="hero-content">
             <h1>Good Isaac Home Concepts</h1>
             <p>Transforming spaces with exquisite designs and craftsmanship.</p>
@@ -248,15 +313,28 @@
 
     <!-- Header Section -->
     <header>
-        <img id="profile-image" class="cache-bust" src="gihc.png" alt="profile">
+        <img id="profile-image" src="gihc.png" alt="profile">
         <div class="header-content">
             <h2>Good Isaac Home Concepts</h2>
             <p>Welcome to Good Isaac Home Concepts, we specialize in all types of exterior and interior finishes, design and installation of contemporary kitchen cabinets, wardrobes, office furniture.</p>
         </div>
-        <button id="menu-button">☰ Menu</button>
-        <div class="dropdown" id="dropdown-menu">
-            <a href="portfolio.html">Portfolio</a>
-            <a href="tel:+254710593221">Call Us</a>
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+            <a href="book_shelves.html">Book Shelves</a>
+            <a href="chester_drawer.html">Chester Drawer</a>
+            <a href="coffee_tables.html">Coffee Tables</a>
+            <a href="corner_shelf.html">Corner Shelf</a>
+            <a href="dinning_table.html">Dining Table</a>
+            <a href="end_or_side_table.html">End or Side Table</a>
+            <a href="manicure_tables.html">Manicure Tables</a>
+            <a href="office_tables.html">Office Tables</a>
+            <a href="ottoman_and_pouf.html">Ottoman and Pouf</a>
+            <a href="pharmacy_cabinets.html">Pharmacy Cabinets</a>
+            <a href="shoe_rack.html">Shoe Rack</a>
+            <a href="study_tables.html">Study Tables</a>
+            <a href="wall_unit.html">Wall Unit</a>
+            <a href="wardrobes.html">Wardrobes</a>
+            <a href="washroom_cabinets.html">Washroom Cabinets</a>
         </div>
     </header>
 
@@ -265,15 +343,15 @@
         <h2>Our Services</h2>
         <ul class="services-grid">
             <li>
-                <img id="services-0" class="cache-bust" src="images/isaac_img11.jpg" alt="Custom Bookshelf and Study Table.">
+                <img src="images/isaac_img11.jpg" alt="Custom Bookshelf and Study Table.">
                 <p>Custom Bookshelf and Study Table.</p>
             </li>
             <li>
-                <img id="services-1" class="cache-bust" src="images/isaac_img6.jpg" alt="Renovation - Design and Installation of Wardrobes.">
+                <img src="images/isaac_img6.jpg" alt="Renovation - Design and Installation of Wardrobes.">
                 <p>Renovation - Design and Installation of Wardrobes.</p>
             </li>
             <li>
-                <img id="services-2" class="cache-bust" src="images/isaac_img14.jpg" alt="Design of Contemporary Shoe Rack.">
+                <img src="images/isaac_img14.jpg" alt="Design of Contemporary Shoe Rack.">
                 <p>Design of Contemporary Shoe Rack.</p>
             </li>
         </ul>
@@ -285,22 +363,22 @@
         <div class="project-grid">
             <!-- Image 1 -->
             <div>
-                <img id="projects-0" class="cache-bust" src="images/isaac_img16.jpg" alt="Iron Board Station">
+                <img src="images/isaac_img16.jpg" alt="Iron Board Station">
                 <p>Iron Board Station</p>
             </div>
             <!-- Image 2 -->
             <div>
-                <img id="projects-1" class="cache-bust" src="images/isaac_img17.jpg" alt="Cabinet">
+                <img src="images/isaac_img17.jpg" alt="Cabinet">
                 <p>Cabinet</p>
             </div>
             <!-- Image 3 -->
             <div>
-                <img id="projects-2" class="cache-bust" src="images/isaac_img18.jpg" alt="Cupboard">
+                <img src="images/isaac_img18.jpg" alt="Cupboard">
                 <p>Cupboard</p>
             </div>
             <!-- Video 1 -->
             <div>
-                <video controls class="cache-bust">
+                <video controls>
                     <source src="vides/v1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -308,7 +386,7 @@
             </div>
             <!-- Video 2 -->
             <div>
-                <video controls class="cache-bust">
+                <video controls>
                     <source src="vides/v2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -316,7 +394,7 @@
             </div>
             <!-- Video 3 -->
             <div>
-                <video controls class="cache-bust">
+                <video controls>
                     <source src="vides/v3.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -329,7 +407,7 @@
     <section id="video">
         <h2>Watch Our Work</h2>
         <div class="video-thumbnail" onclick="playVideo(this)">
-            <img class="cache-bust" src="https://img.youtube.com/vi/AU4mQDrCpIs/maxresdefault.jpg" alt="Watch Our Work">
+            <img src="https://img.youtube.com/vi/AU4mQDrCpIs/maxresdefault.jpg" alt="Watch Our Work">
             <div class="play-button">&#9658;</div>
         </div>
     </section>
@@ -339,30 +417,6 @@
         function playVideo(container) {
             container.innerHTML = '<iframe width="100%" height="315" src="https://www.youtube.com/embed/AU4mQDrCpIs?autoplay=1" frameborder="0" allowfullscreen></iframe>';
         }
-    </script>
-
-    <!-- Modal for full size image -->
-    <div id="imgModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImg">
-    </div>
-
-    <script>
-        // Modal functions and image click event attachment
-        function openModal(src) {
-            var modal = document.getElementById("imgModal");
-            var modalImg = document.getElementById("modalImg");
-            modal.style.display = "block";
-            modalImg.src = src;
-        }
-        function closeModal() {
-            document.getElementById("imgModal").style.display = "none";
-        }
-        document.querySelectorAll('img.cache-bust').forEach(function(img) {
-            img.addEventListener('click', function() {
-                openModal(this.src);
-            });
-        });
     </script>
 
     <!-- Footer Section -->
@@ -377,7 +431,5 @@
             <a href="https://www.tiktok.com/@user92493734966723?_t=ZM-8uDkAdjE53u&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
         </p>
     </footer>
-
-    <script src="scripts_v4.js"></script>
 </body>
 </html>
