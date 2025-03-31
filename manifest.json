@@ -7,12 +7,12 @@
   "theme_color": "#13274F",
   "icons": [
     {
-      "src": "sofas/logox",
+      "src": "sofas/logox.jpg",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "sofas/logox",
+      "src": "sofas/logox.jpg",
       "sizes": "512x512",
       "type": "image/png"
     }
