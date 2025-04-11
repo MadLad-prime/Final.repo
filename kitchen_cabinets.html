@@ -11,7 +11,7 @@
   <header class="hero">
     <div class="hero-content">
       <h1>Welcome to Our Gallery</h1>
-      <p>Explore our stunning collection of Wardrobes.</p>
+      <p>Explore our stunning collection of Kitchen Cabinets.</p>
     </div>
     <!-- CTA Button -->
     <button id="cta-button" class="cta-button">Contact Us</button>
@@ -310,12 +310,12 @@
 
       let message = `Name: ${name}, Phone: ${phone}`;
 
-      if (contactMethod === 'email') {
-        window.location.href = `mailto:owner@example.com?subject=Contact Request&body=${message}`;
+       if (contactMethod === 'email') {
+        window.location.href = `mailto: abdalamarenya@gmail.com?subject=Contact Request&body=${message}`;
       } else if (contactMethod === 'sms') {
-        window.location.href = `sms:${phone}?body=${message}`;
+        window.location.href = `sms:+254 710593221?body=${message}`;
       } else if (contactMethod === 'whatsapp') {
-        window.location.href = `https://wa.me/1234567890?text=${message}`;
+        window.location.href = `https://wa.me/+254 710593221?text=${message}`;
       }
 
       modal.style.display = 'none';
