@@ -8,7 +8,7 @@
     <meta name="description" content="Good Isaac Home Concepts offers master carpentry, custom furniture, and bespoke interior solutions. Specializing in kitchen cabinets, wardrobes, and unique home concepts in Nairobi, Kenya.">
     <meta name="keywords" content="carpenter, nairobi, kenya, custom furniture, kitchen cabinets, wardrobes, interior design, good isaac home concepts">
 
-    <link rel="icon" href="https://placehold.co/32x32/101828/FFFFFF/png?text=GI" type="image/png">
+    <link rel="icon" href="android-chrome-32x32.png" type="image/png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,11 @@
     
     <!-- Link to your CSS file -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#101828">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="android-chrome-192x192.png">
 
     <!-- Defer script loading for faster page load -->
     <script src="scripts.js" defer></script>
@@ -237,5 +242,12 @@
             </div>
         </div>
     </div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service-worker.js');
+        });
+      }
+    </script>
 </body>
 </html>
