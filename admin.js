@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- ⚠️  CONFIGURATION ⚠️ ---
     const CLOUDINARY_CONFIG = {
         cloudName: 'dujlwpbrv',        // ⚠️  REPLACE with your Cloudinary Cloud Name
-        uploadPreset: 'coffee555'   // ⚠️  REPLACE with the Unsigned Upload Preset you created
+        uploadPreset: 'coffee555',   // ⚠️  REPLACE with the Unsigned Upload Preset you created
+        resourceType: 'auto'
     };
 
     // DOM Elements
