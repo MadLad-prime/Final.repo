@@ -175,3 +175,21 @@ body {
 .close-btn { top: 20px; right: 20px; width: 40px; height: 40px; }
 .prev-btn { left: 20px; }
 .next-btn { right: 20px; }
+
+
+/* --- Video Gallery Styles --- */
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.video-gallery video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Keeps the videos proportional */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    object-fit: cover;
+}
