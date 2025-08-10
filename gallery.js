@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loader.style.display = 'block';
         try {
             // Fetch the list of images with the specific tag
-            const response = await fetch(`https://res.cloudinary.com/${CLOUDINARY_CONFIG.cloudName}/image/list/${categoryTag}.json?max_results=1000`);
+            const response = await fetch(`https://res.cloudinary.com/${CLOUDINARY_CONFIG.cloudName}/image/list/${categoryTag}.json?max_results=2000`);
             if (!response.ok) throw new Error(`Could not fetch images. Check the tag name and your Cloudinary settings.`);
             
             const data = await response.json();
