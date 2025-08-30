@@ -26,6 +26,26 @@
 
     <!-- Defer script loading for faster page load -->
     <script src="scripts.js" defer></script>
+    <style>
+        .before-after-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .before-image img, .after-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .before-image, .after-image {
+            flex: 1;
+            max-width: 48%;
+        }
+    </style>
 </head>
 <body>
 
