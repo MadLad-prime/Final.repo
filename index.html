@@ -131,31 +131,67 @@
             </div>
         </section>
 
+        <!-- === START: UPDATED PROJECTS SECTION === -->
         <section id="projects" class="projects-section section-padding">
             <div class="container">
-                <h2 class="section-heading anim-on-scroll">Featured Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card anim-on-scroll">
-                        <img src="images/s.jpg" alt="Custom Bookshelf and Study Table">
-                        <div class="project-card-content">
-                            <p>Custom Bookshelf & Study Table</p>
-                        </div>
-                    </div>
-                    <div class="project-card anim-on-scroll" style="--delay: 150ms;">
-                        <img src="images/w.jpg" alt="Renovated wardrobe installation">
-                        <div class="project-card-content">
-                            <p>Full-Height Wardrobe Installation</p>
-                        </div>
-                    </div>
-                    <div class="project-card anim-on-scroll" style="--delay: 300ms;">
-                        <img src="images/i.jpg" alt="Custom Iron Board Station">
-                        <div class="project-card-content">
-                            <p>Bespoke Iron Board Station</p>
-                        </div>
-                    </div>
+              <h2 class="section-heading anim-on-scroll">Featured Projects</h2>
+              <div class="projects-grid">
+                
+                <div class="project-card anim-on-scroll" 
+                     data-before="images/sofas/sofab.jpg" 
+                     data-after="images/sofas/sofaa.jpg" 
+                     data-title="Nazlin Restaurant Booth"
+                     data-description="Fully custom restaurant booth made for Nazlin restaurant in Nasra Gardens featuring purple leather upholstery. Filler"
+                     data-duration="3-days"
+                     data-materials="Plywood, Leather, Foam"
+                     data-client="Nazlin Restaurant, Nasra Gardens">
+                  <div class="project-image-container">
+                    <img src="images/sofas/sofaa.jpg" alt="Nazlin Restaurant Booth Project">
+                  </div>
+                  <div class="project-card-content">
+                    <h3 class="project-title">Nazlin Restaurant Booth</h3>
+                    <p class="project-description-short">Fully custom restaurant booth made for Nazlin in Nasra Gardens featuring a striking purple leather finish. Filler</p>
+                  </div>
                 </div>
+
+                <div class="project-card anim-on-scroll" 
+                     data-before="images/shoe_racks/s1.jpg" 
+                     data-after="images/shoe_racks/s2.jpg" 
+                     data-title="Classic Shoe Rack" 
+                     data-description="A timeless white shoe rack designed for residential use, combining functionality with elegance."
+                     data-duration="2 days"
+                     data-materials="MDF, White Paint, Soft-close Hinges"
+                     data-client="Residential Client, Nairobi">
+                  <div class="project-image-container">
+                    <img src="images/shoe_racks/s2.jpg" alt="Classic Shoe Rack Project">
+                  </div>
+                  <div class="project-card-content">
+                    <h3 class="project-title">Classic Shoe Rack</h3>
+                    <p class="project-description-short">A sleek and functional white shoe rack crafted for a residential client in Nairobi.</p>
+                  </div>
+                </div>
+
+                <div class="project-card anim-on-scroll" 
+                     data-before="images/wardrobe/before.png" 
+                     data-after="images/wardrobe/after.png" 
+                     data-title="Walk-in Wardrobe Installation"
+                     data-description="A luxurious walk-in wardrobe featuring LED lighting, custom organization systems, and premium finishes."
+                     data-duration="2 weeks"
+                     data-materials="Mahogany veneer, LED strips, Soft-close hinges"
+                     data-client="Apartment, Westlands">
+                  <div class="project-image-container">
+                    <img src="images/wardrobe/after.png" alt="Wardrobe Installation Project">
+                  </div>
+                  <div class="project-card-content">
+                    <h3 class="project-title">Wardrobe Installation</h3>
+                    <p class="project-description-short">A sophisticated wardrobe with smart organization and elegant finishes.</p>
+                  </div>
+                </div>
+
+              </div>
             </div>
         </section>
+        <!-- === END: UPDATED PROJECTS SECTION === -->
         
         <section class="socials-section section-padding">
             <div class="container">
@@ -210,6 +246,7 @@
         </div>
     </footer>
 
+    <!-- Catalogue Modal -->
     <div id="catalogue-modal" class="catalogue-modal-overlay">
         <div class="modal-content">
             <button class="modal-close-btn" id="close-catalogue-modal" title="Close">×</button>
@@ -246,10 +283,54 @@
                 <a href="pages/wine.html" class="modal-card-link">Wine Cabinets</a>
                 <a href="pages/keys_router_shelf.html" class="modal-card-link">Keys and Router Shelf</a>
                 <a href="pages/flute_panel.html" class="modal-card-link">Flute Panel</a>
-                <!-- Add all your other category links here -->
             </div>
         </div>
     </div>
+    
+    <!-- Project Lightbox -->
+    <div id="project-lightbox" class="project-lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <button class="close-lightbox" id="close-lightbox">×</button>
+                <h2 class="lightbox-title" id="lightbox-title"></h2>
+            </div>
+            <div class="lightbox-body">
+                <div class="before-after-container">
+                    <div class="before-image">
+                        <img id="before-image" src="" alt="Before">
+                    </div>
+                    <div class="after-image">
+                        <img id="after-image" src="" alt="After">
+                    </div>
+                </div>
+
+                <div class="lightbox-toggle-buttons">
+                    <button id="show-before-btn" class="toggle-btn">Show Before</button>
+                    <button id="show-after-btn" class="toggle-btn active">Show After</button>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-card">
+                        <h4 class="detail-title"><i class="fas fa-info-circle"></i>Description</h4>
+                        <p class="detail-text" id="project-description"></p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-title"><i class="fas fa-clock"></i>Duration</h4>
+                        <p class="detail-text" id="project-duration"></p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-title"><i class="fas fa-tools"></i>Materials</h4>
+                        <p class="detail-text" id="project-materials"></p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-title"><i class="fas fa-map-marker-alt"></i>Location</h4>
+                        <p class="detail-text" id="project-client"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {

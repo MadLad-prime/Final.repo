@@ -241,24 +241,6 @@ body {
     margin-bottom: var(--spacing-unit);
 }
 
-/* --- PROJECTS SECTION --- */
-.projects-section { background-color: var(--color-white); }
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: calc(var(--spacing-unit) * 4); }
-.project-card {
-    background-color: var(--color-light-cream);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-}
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-}
-.project-card img { width: 100%; height: 250px; object-fit: cover; display: block; }
-.project-card-content { padding: calc(var(--spacing-unit) * 3); }
-.project-card p { font-weight: 600; font-size: 1.1rem; color: var(--color-dark-navy); }
-
 /* --- SOCIALS SECTION --- */
 .socials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: calc(var(--spacing-unit) * 4); }
 .social-card {
@@ -360,18 +342,17 @@ body {
         color: var(--color-white);
         border: none;
     }
+    .projects-grid { grid-template-columns: 1fr; }
+    .before-after-container { height: 300px; }
 }
 
-
-/* --- NEW STYLES for style.css --- */
-
-/* --- Catalogue "See More" Card --- */
+/* --- NEW STYLES: Catalogue "See More" Card --- */
 .catalogue-more-card {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 400px;
+    min-height: 400px;
     border-radius: var(--border-radius);
     background-color: var(--color-light-cream);
     border: 2px dashed var(--color-slate-grey);
@@ -379,35 +360,30 @@ body {
     text-align: center;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-
 .catalogue-more-card:hover {
     background-color: var(--color-white);
     border-color: var(--color-accent-azure);
 }
-
 .catalogue-more-card .card-overlay {
     background: none;
     position: static;
     padding: 0;
 }
-
 .catalogue-more-card h3 {
     color: var(--color-dark-navy);
 }
-
 .catalogue-more-card .card-cta {
     opacity: 1;
     transform: none;
     color: var(--color-slate-grey);
 }
-
 .catalogue-more-card .fa-grip {
     font-size: 3rem;
     color: var(--color-accent-azure);
     margin-bottom: 1rem;
 }
 
-/* --- Catalogue Modal --- */
+/* --- NEW STYLES: Catalogue Modal --- */
 .catalogue-modal-overlay {
     position: fixed;
     inset: 0;
@@ -421,12 +397,10 @@ body {
     visibility: hidden;
     transition: opacity 0.4s ease, visibility 0.4s ease;
 }
-
 .catalogue-modal-overlay.active {
     opacity: 1;
     visibility: visible;
 }
-
 .modal-content {
     background-color: var(--color-white);
     padding: 2rem 2.5rem;
@@ -440,11 +414,9 @@ body {
     transform: translateY(-30px);
     transition: transform 0.4s ease;
 }
-
 .catalogue-modal-overlay.active .modal-content {
     transform: translateY(0);
 }
-
 .modal-close-btn {
     position: absolute;
     top: 15px;
@@ -457,12 +429,10 @@ body {
     cursor: pointer;
     transition: color 0.3s ease, transform 0.3s ease;
 }
-
 .modal-close-btn:hover {
     color: var(--color-dark-navy);
     transform: rotate(90deg);
 }
-
 .modal-content h2 {
     font-family: var(--font-heading);
     color: var(--color-dark-navy);
@@ -474,13 +444,11 @@ body {
     margin-bottom: 2rem;
     color: var(--color-slate-grey);
 }
-
 .modal-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
 }
-
 .modal-card-link {
     display: block;
     padding: 1.5rem 1rem;
@@ -493,10 +461,117 @@ body {
     border: 1px solid var(--color-border);
     transition: all 0.3s ease;
 }
-
 .modal-card-link:hover {
     background-color: var(--color-accent-azure);
     color: var(--color-white);
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 90, 238, 0.2);
 }
+
+/* === START: NEW STYLES FOR ENHANCED PROJECTS SECTION === */
+.projects-section { 
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-light-cream) 100%);
+}
+.projects-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: calc(var(--spacing-unit) * 5); 
+}
+.project-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    border: 1px solid var(--color-border);
+}
+.project-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 90, 238, 0.15);
+}
+.project-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+}
+.project-card img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.6s ease;
+}
+.project-card:hover img { transform: scale(1.1); }
+.project-card-content { padding: calc(var(--spacing-unit) * 4); }
+.project-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--color-dark-navy);
+    margin-bottom: calc(var(--spacing-unit) * 1);
+    font-weight: 600;
+}
+.project-description-short {
+    color: var(--color-slate-grey);
+    font-size: 0.95rem;
+}
+
+/* --- Project Lightbox --- */
+.project-lightbox {
+    position: fixed; inset: 0; background: rgba(16, 24, 40, 0.95); backdrop-filter: blur(15px);
+    z-index: 5000; display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: all 0.4s ease;
+}
+.project-lightbox.active { opacity: 1; visibility: visible; }
+.lightbox-content {
+    background: var(--color-white); border-radius: 20px; max-width: 95vw; max-height: 90vh;
+    width: 1000px; overflow: hidden; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9); transition: transform 0.4s ease;
+}
+.project-lightbox.active .lightbox-content { transform: scale(1); }
+.lightbox-header {
+    background: linear-gradient(135deg, var(--color-accent-azure), var(--color-accent-hover));
+    color: var(--color-white); padding: 2rem; text-align: center; position: relative;
+}
+.lightbox-title { font-family: var(--font-heading); font-size: 2rem; }
+.close-lightbox {
+    position: absolute; top: 1rem; right: 1rem; background: rgba(255, 255, 255, 0.2);
+    border: none; color: var(--color-white); font-size: 1.5rem; width: 40px; height: 40px;
+    border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s ease;
+}
+.close-lightbox:hover { background: rgba(255, 255, 255, 0.3); transform: rotate(90deg); }
+.lightbox-body { padding: 2rem; overflow-y: auto; max-height: calc(90vh - 120px); }
+
+/* --- Before/After Image Viewer --- */
+.before-after-container {
+    position: relative; width: 100%; height: 400px; margin-bottom: 1.5rem;
+    border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+.before-image, .after-image { position: absolute; inset: 0; }
+.before-image { width: 0%; overflow: hidden; transition: width 0.5s ease; z-index: 2; }
+.before-image img, .after-image img { width: 1000px; height: 100%; object-fit: cover; max-width: none; }
+.after-image img { width: 100%; max-width: 100%; }
+
+
+/* --- Lightbox Toggle Buttons --- */
+.lightbox-toggle-buttons { text-align: center; margin-bottom: 2rem; }
+.toggle-btn {
+    background: var(--color-light-cream); color: var(--color-slate-grey); border: 2px solid var(--color-border);
+    padding: 10px 24px; font-family: var(--font-heading); font-weight: 600;
+    border-radius: 25px; cursor: pointer; transition: all 0.3s ease; margin: 0 10px;
+}
+.toggle-btn.active, .toggle-btn:hover {
+    background: var(--color-accent-azure); color: var(--color-white); border-color: var(--color-accent-azure);
+    transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 90, 238, 0.2);
+}
+
+/* --- Project Details Cards --- */
+.project-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+.detail-card { background: var(--color-light-cream); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--color-border); }
+.detail-title {
+    font-family: var(--font-heading); font-weight: 600; color: var(--color-dark-navy);
+    margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.detail-title i { color: var(--color-accent-azure); }
+.detail-text { color: var(--color-slate-grey); }
+/* === END: NEW STYLES === */
